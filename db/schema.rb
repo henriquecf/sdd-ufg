@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117181549) do
+ActiveRecord::Schema.define(version: 20151117183413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(version: 20151117181549) do
   add_index "knowledge_levels", ["knowledge_group_id"], name: "index_knowledge_levels_on_knowledge_group_id", using: :btree
   add_index "knowledge_levels", ["teacher_id"], name: "index_knowledge_levels_on_teacher_id", using: :btree
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "role"
+    t.integer  "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "roles", ["teacher_id"], name: "index_roles_on_teacher_id", using: :btree
+
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
     t.string   "registry"
@@ -146,5 +155,6 @@ ActiveRecord::Schema.define(version: 20151117181549) do
   add_foreign_key "klasses", "teachers"
   add_foreign_key "knowledge_levels", "knowledge_groups"
   add_foreign_key "knowledge_levels", "teachers"
+  add_foreign_key "roles", "teachers"
   add_foreign_key "teachers", "users"
 end
