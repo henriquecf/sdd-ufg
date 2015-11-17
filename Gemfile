@@ -37,6 +37,8 @@ gem 'simple_form'
 
 gem 'devise'
 
+gem 'cancancan', '~> 1.10'
+
 group :development, :test do
   gem 'byebug'
 
