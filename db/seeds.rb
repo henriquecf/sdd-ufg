@@ -45,4 +45,19 @@ advanced_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: ad
 no_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: no_sql)
 
 KlassSchedule.find_or_create_by(klass: web_class, week_day: 2, starts_at: "18:50:00", finishs_at: "20:20:00")
-KlassSchedule.find_or_create_by(klass: web_class, week_day: 4, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: web_class, week_day: 4, starts_at: "20:30:00", finishs_at: "22:00:00")
+KlassSchedule.find_or_create_by(klass: ds_class, week_day: 3, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: ds_class, week_day: 5, starts_at: "20:30:00", finishs_at: "22:00:00")
+KlassSchedule.find_or_create_by(klass: db_class, week_day: 4, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: db_class, week_day: 2, starts_at: "20:30:00", finishs_at: "22:00:00")
+
+KlassSchedule.find_or_create_by(klass: web_class_cs, week_day: 2, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: web_class_cs, week_day: 4, starts_at: "20:30:00", finishs_at: "22:00:00")
+KlassSchedule.find_or_create_by(klass: ds_class_cs, week_day: 3, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: ds_class_cs, week_day: 5, starts_at: "20:30:00", finishs_at: "22:00:00")
+KlassSchedule.find_or_create_by(klass: db_class_cs, week_day: 4, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: db_class_cs, week_day: 2, starts_at: "20:30:00", finishs_at: "22:00:00")
+
+KlassSchedule.find_or_create_by(klass: advanced_sql_class, week_day: 6, starts_at: "18:50:00", finishs_at: "20:20:00")
+
+KlassSchedule.find_or_create_by(klass: no_sql_class, week_day: 6, starts_at: "20:30:00", finishs_at: "22:00:00")
