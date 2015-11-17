@@ -20,11 +20,11 @@ computer_science = Course.find_or_create_by(name: "Computer Science")
 distributed_kg = KnowledgeGroup.find_or_create_by(name: "Distributed Systems")
 db_kg = KnowledgeGroup.find_or_create_by(name: "Database")
 
-web = Grade.create_with(knowledge_group: distributed_kg).find_or_create_by(name: "Redes")
-ds = Grade.create_with(knowledge_group: distributed_kg).find_or_create_by(name: "Sistemas Distribuidos")
-db = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "SGBDs")
-advanced_sql = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "SQL Avancado")
-no_sql = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "NoSQL")
+web = Grade.create_with(knowledge_group: distributed_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "Redes")
+ds = Grade.create_with(knowledge_group: distributed_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "Sistemas Distribuidos")
+db = Grade.create_with(knowledge_group: db_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "SGBDs")
+advanced_sql = Grade.create_with(knowledge_group: db_kg, course_ids: [computer_science.id]).find_or_create_by(name: "SQL Avancado")
+no_sql = Grade.create_with(knowledge_group: db_kg, course_ids: [software_eng.id]).find_or_create_by(name: "NoSQL")
 
 knowledge_groups_ids = KnowledgeGroup.pluck(:id)
 Teacher.all.each do |teacher|
