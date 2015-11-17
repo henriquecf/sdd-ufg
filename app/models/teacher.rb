@@ -1,6 +1,9 @@
 class Teacher < ActiveRecord::Base
-  belongs_to :user
   validates :user, presence: true
+
+  belongs_to :user
+  has_many :knowledge_levels
+  has_many :knowledge_groups, through: :knowledge_levels
 
   def coordinator?
     false
