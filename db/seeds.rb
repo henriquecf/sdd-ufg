@@ -35,14 +35,14 @@ Teacher.all.each do |teacher|
   teacher.save
 end
 
-web_class = Klass.create_with(workload: 64).find_or_create_by(grade: web)
-ds_class = Klass.create_with(workload: 64).find_or_create_by(grade: ds)
-db_class = Klass.create_with(workload: 64).find_or_create_by(grade: db)
-web_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: web_cs)
-ds_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: ds_cs)
-db_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: db_cs)
-advanced_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: advanced_sql)
-no_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: no_sql)
+web_class = Klass.create(workload: 64, grade: web)
+ds_class = Klass.create(workload: 64, grade: ds)
+db_class = Klass.create(workload: 64, grade: db)
+web_class_cs = Klass.create(workload: 64, grade: web_cs)
+ds_class_cs = Klass.create(workload: 64, grade: ds_cs)
+db_class_cs = Klass.create(workload: 64, grade: db_cs)
+advanced_sql_class = Klass.create(workload: 32, grade: advanced_sql)
+no_sql_class = Klass.create(workload: 32, grade: no_sql)
 
 KlassSchedule.find_or_create_by(klass: web_class, week_day: 2, starts_at: "18:50:00", finishs_at: "20:20:00")
 KlassSchedule.find_or_create_by(klass: web_class, week_day: 4, starts_at: "20:30:00", finishs_at: "22:00:00")
