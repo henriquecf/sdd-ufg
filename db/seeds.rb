@@ -20,11 +20,11 @@ computer_science = Course.find_or_create_by(name: "Computer Science")
 distributed_kg = KnowledgeGroup.find_or_create_by(name: "Distributed Systems")
 db_kg = KnowledgeGroup.find_or_create_by(name: "Database")
 
-web = Grade.find_or_create_by(name: "Redes", knowledge_group: distributed_kg)
-ds = Grade.find_or_create_by(name: "Sistemas Distribuidos", knowledge_group: distributed_kg)
-db = Grade.find_or_create_by(name: "SGBDs", knowledge_group: db_kg)
-advanced_sql = Grade.find_or_create_by(name: "SQL Avancado", knowledge_group: db_kg)
-no_sql = Grade.find_or_create_by(name: "NoSQL", knowledge_group: db_kg)
+web = Grade.create_with(knowledge_group: distributed_kg).find_or_create_by(name: "Redes")
+ds = Grade.create_with(knowledge_group: distributed_kg).find_or_create_by(name: "Sistemas Distribuidos")
+db = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "SGBDs")
+advanced_sql = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "SQL Avancado")
+no_sql = Grade.create_with(knowledge_group: db_kg).find_or_create_by(name: "NoSQL")
 
 knowledge_groups_ids = KnowledgeGroup.pluck(:id)
 Teacher.all.each do |teacher|
