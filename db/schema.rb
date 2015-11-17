@@ -110,10 +110,10 @@ ActiveRecord::Schema.define(version: 20151117195405) do
     t.string   "rg"
     t.string   "cpf"
     t.date     "birth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
-    t.string   "roles"
+    t.string   "roles",      default: ""
   end
 
   add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree
