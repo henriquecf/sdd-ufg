@@ -8,6 +8,8 @@ class Teacher < ActiveRecord::Base
   has_many :knowledge_levels
   has_many :knowledge_groups, through: :knowledge_levels
 
+  serialize :roles
+
   def coordinator?
     roles.include?("coordinator")
   end

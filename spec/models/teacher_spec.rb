@@ -14,4 +14,16 @@ RSpec.describe Teacher, type: :model do
       expect(subject.coordinator?).to be_falsey
     end
   end
+
+  describe "roles field" do
+    it "should be empty by default" do
+      subject = Teacher.create!(user: User.create(email: "e@l.com", password: "hdsah92321"))
+      expect(subject.roles).to eq("[]")
+    end
+
+    it "should be serialized as array" do
+      subject = Teacher.create!(user: User.create(email: "e@l.com", password: "hdsah92321"), roles: ["role1"])
+      expect(subject.roles).to eq(["role1"])
+    end
+  end
 end
