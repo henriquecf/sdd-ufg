@@ -1,3 +1,3 @@
 class Course < ActiveRecord::Base
-  has_and_belongs_to_many :grades
+  has_many :grades
 end

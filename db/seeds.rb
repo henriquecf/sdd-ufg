@@ -20,14 +20,29 @@ computer_science = Course.find_or_create_by(name: "Computer Science")
 distributed_kg = KnowledgeGroup.find_or_create_by(name: "Distributed Systems")
 db_kg = KnowledgeGroup.find_or_create_by(name: "Database")
 
-web = Grade.create_with(knowledge_group: distributed_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "Redes")
-ds = Grade.create_with(knowledge_group: distributed_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "Sistemas Distribuidos")
-db = Grade.create_with(knowledge_group: db_kg, course_ids: [software_eng.id, computer_science.id]).find_or_create_by(name: "SGBDs")
-advanced_sql = Grade.create_with(knowledge_group: db_kg, course_ids: [computer_science.id]).find_or_create_by(name: "SQL Avancado")
-no_sql = Grade.create_with(knowledge_group: db_kg, course_ids: [software_eng.id]).find_or_create_by(name: "NoSQL")
+web = Grade.create_with(knowledge_group: distributed_kg, course: software_eng).find_or_create_by(name: "Redes")
+web_cs = Grade.create_with(knowledge_group: distributed_kg, course: computer_science).find_or_create_by(name: "Redes")
+ds = Grade.create_with(knowledge_group: distributed_kg, course: software_eng).find_or_create_by(name: "Sistemas Distribuidos")
+ds_cs = Grade.create_with(knowledge_group: distributed_kg, course: computer_science).find_or_create_by(name: "Sistemas Distribuidos")
+db = Grade.create_with(knowledge_group: db_kg, course: software_eng).find_or_create_by(name: "SGBDs")
+db_cs = Grade.create_with(knowledge_group: db_kg, course: computer_science).find_or_create_by(name: "SGBDs")
+advanced_sql = Grade.create_with(knowledge_group: db_kg, course: computer_science).find_or_create_by(name: "SQL Avancado")
+no_sql = Grade.create_with(knowledge_group: db_kg, course: software_eng).find_or_create_by(name: "NoSQL")
 
 knowledge_groups_ids = KnowledgeGroup.pluck(:id)
 Teacher.all.each do |teacher|
   teacher.knowledge_group_ids = knowledge_groups_ids
   teacher.save
 end
+
+web_class = Klass.create_with(workload: 64).find_or_create_by(grade: web)
+ds_class = Klass.create_with(workload: 64).find_or_create_by(grade: ds)
+db_class = Klass.create_with(workload: 64).find_or_create_by(grade: db)
+web_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: web_cs)
+ds_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: ds_cs)
+db_class_cs = Klass.create_with(workload: 64).find_or_create_by(grade: db_cs)
+advanced_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: advanced_sql)
+no_sql_class = Klass.create_with(workload: 32).find_or_create_by(grade: no_sql)
+
+KlassSchedule.find_or_create_by(klass: web_class, week_day: 2, starts_at: "18:50:00", finishs_at: "20:20:00")
+KlassSchedule.find_or_create_by(klass: web_class, week_day: 4, starts_at: "18:50:00", finishs_at: "20:20:00")
