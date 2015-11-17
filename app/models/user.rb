@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def coordinator?
-    false
-  end
+  has_one :teacher
+
+  delegate :coordinator?, to: :teacher
 end
