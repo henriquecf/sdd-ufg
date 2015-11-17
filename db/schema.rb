@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117175847) do
+ActiveRecord::Schema.define(version: 20151117180224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20151117175847) do
   end
 
   add_index "grades", ["knowledge_group_id"], name: "index_grades_on_knowledge_group_id", using: :btree
+
+  create_table "klass_schedules", force: :cascade do |t|
+    t.integer  "week_day"
+    t.time     "starts_at"
+    t.time     "finishs_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "knowledge_groups", force: :cascade do |t|
     t.string   "name"
