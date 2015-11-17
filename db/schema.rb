@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117170010) do
+ActiveRecord::Schema.define(version: 20151117171358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,12 @@ ActiveRecord::Schema.define(version: 20151117170010) do
 
   create_table "grades", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "knowledge_group_id"
   end
+
+  add_index "grades", ["knowledge_group_id"], name: "index_grades_on_knowledge_group_id", using: :btree
 
   create_table "knowledge_groups", force: :cascade do |t|
     t.string   "name"
@@ -80,5 +83,6 @@ ActiveRecord::Schema.define(version: 20151117170010) do
 
   add_foreign_key "courses_grades", "courses"
   add_foreign_key "courses_grades", "grades"
+  add_foreign_key "grades", "knowledge_groups"
   add_foreign_key "teachers", "users"
 end
