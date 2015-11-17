@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :distribution_processes
   resources :knowledge_groups
   resources :grades
   resources :courses

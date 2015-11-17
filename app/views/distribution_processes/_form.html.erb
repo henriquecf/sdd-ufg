@@ -1,0 +1,16 @@
+<%= simple_form_for(@distribution_process) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :semester %>
+    <%= f.input :klass_registry_start %>
+    <%= f.input :teacher_intent_start %>
+    <%= f.input :first_resolution_start %>
+    <%= f.input :substitute_resolution_start %>
+    <%= f.input :conclusion %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

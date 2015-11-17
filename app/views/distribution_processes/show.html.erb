@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @distribution_process.semester %>
+</p>
+
+<p>
+  <strong>Klass registry start:</strong>
+  <%= @distribution_process.klass_registry_start %>
+</p>
+
+<p>
+  <strong>Teacher intent start:</strong>
+  <%= @distribution_process.teacher_intent_start %>
+</p>
+
+<p>
+  <strong>First resolution start:</strong>
+  <%= @distribution_process.first_resolution_start %>
+</p>
+
+<p>
+  <strong>Substitute resolution start:</strong>
+  <%= @distribution_process.substitute_resolution_start %>
+</p>
+
+<p>
+  <strong>Conclusion:</strong>
+  <%= @distribution_process.conclusion %>
+</p>
+
+<%= link_to 'Edit', edit_distribution_process_path(@distribution_process) %> |
+<%= link_to 'Back', distribution_processes_path %>

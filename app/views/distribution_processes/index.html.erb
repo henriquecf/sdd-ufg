@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Distribution Processes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Semester</th>
+      <th>Klass registry start</th>
+      <th>Teacher intent start</th>
+      <th>First resolution start</th>
+      <th>Substitute resolution start</th>
+      <th>Conclusion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @distribution_processes.each do |distribution_process| %>
+      <tr>
+        <td><%= distribution_process.semester %></td>
+        <td><%= distribution_process.klass_registry_start %></td>
+        <td><%= distribution_process.teacher_intent_start %></td>
+        <td><%= distribution_process.first_resolution_start %></td>
+        <td><%= distribution_process.substitute_resolution_start %></td>
+        <td><%= distribution_process.conclusion %></td>
+        <td><%= link_to 'Show', distribution_process %></td>
+        <td><%= link_to 'Edit', edit_distribution_process_path(distribution_process) %></td>
+        <td><%= link_to 'Destroy', distribution_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Distribution process', new_distribution_process_path %>
