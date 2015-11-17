@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117180400) do
+ActiveRecord::Schema.define(version: 20151117181033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20151117180400) do
     t.time     "finishs_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "klass_id"
   end
+
+  add_index "klass_schedules", ["klass_id"], name: "index_klass_schedules_on_klass_id", using: :btree
 
   create_table "klasses", force: :cascade do |t|
     t.integer  "workload"
@@ -125,6 +128,7 @@ ActiveRecord::Schema.define(version: 20151117180400) do
   add_foreign_key "courses_grades", "courses"
   add_foreign_key "courses_grades", "grades"
   add_foreign_key "grades", "knowledge_groups"
+  add_foreign_key "klass_schedules", "klasses"
   add_foreign_key "klasses", "distribution_processes"
   add_foreign_key "klasses", "grades"
   add_foreign_key "klasses", "teachers"
