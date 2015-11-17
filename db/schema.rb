@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117180224) do
+ActiveRecord::Schema.define(version: 20151117180400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(version: 20151117180224) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "klasses", force: :cascade do |t|
+    t.integer  "workload"
+    t.integer  "distribution_process_id"
+    t.integer  "teacher_id"
+    t.integer  "grade_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "klasses", ["distribution_process_id"], name: "index_klasses_on_distribution_process_id", using: :btree
+  add_index "klasses", ["grade_id"], name: "index_klasses_on_grade_id", using: :btree
+  add_index "klasses", ["teacher_id"], name: "index_klasses_on_teacher_id", using: :btree
 
   create_table "knowledge_groups", force: :cascade do |t|
     t.string   "name"
@@ -112,6 +125,9 @@ ActiveRecord::Schema.define(version: 20151117180224) do
   add_foreign_key "courses_grades", "courses"
   add_foreign_key "courses_grades", "grades"
   add_foreign_key "grades", "knowledge_groups"
+  add_foreign_key "klasses", "distribution_processes"
+  add_foreign_key "klasses", "grades"
+  add_foreign_key "klasses", "teachers"
   add_foreign_key "knowledge_levels", "knowledge_groups"
   add_foreign_key "knowledge_levels", "teachers"
   add_foreign_key "teachers", "users"
