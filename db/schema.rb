@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117181033) do
+ActiveRecord::Schema.define(version: 20151117181549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20151117181033) do
   end
 
   add_index "grades", ["knowledge_group_id"], name: "index_grades_on_knowledge_group_id", using: :btree
+
+  create_table "klass_intents", force: :cascade do |t|
+    t.integer  "klass_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "klass_intents", ["klass_id"], name: "index_klass_intents_on_klass_id", using: :btree
+  add_index "klass_intents", ["teacher_id"], name: "index_klass_intents_on_teacher_id", using: :btree
 
   create_table "klass_schedules", force: :cascade do |t|
     t.integer  "week_day"
@@ -128,6 +138,8 @@ ActiveRecord::Schema.define(version: 20151117181033) do
   add_foreign_key "courses_grades", "courses"
   add_foreign_key "courses_grades", "grades"
   add_foreign_key "grades", "knowledge_groups"
+  add_foreign_key "klass_intents", "klasses"
+  add_foreign_key "klass_intents", "teachers"
   add_foreign_key "klass_schedules", "klasses"
   add_foreign_key "klasses", "distribution_processes"
   add_foreign_key "klasses", "grades"
