@@ -5,4 +5,7 @@ class Klass < ActiveRecord::Base
   has_many :klass_schedules
   has_many :klass_intents
   has_many :teachers, through: :klass_intents
+
+  validates :grade, :distribution_process, presence: true
+  validates :grade_id, uniqueness: { scope: :distribution_process_id }
 end
