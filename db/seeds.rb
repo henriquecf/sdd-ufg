@@ -8,11 +8,11 @@
 
 user = User.create_with(password: "hc031190").find_or_create_by(email: "elo.henrique@gmail.com")
 user2 = User.create_with(password: "hdsabkj031190").find_or_create_by(email: "juliano@gmail.com")
-user3 = User.create_with(password: "hc031dsabkdns90").find_or_create_by(email: "sergio@gmail.com")
+user3 = User.create_with(password: "sergio123").find_or_create_by(email: "sergio@gmail.com")
 
-teacher = Teacher.create_with(user: user, roles: ["teacher"]).find_or_create_by(name: "Henrique Faria")
+teacher = Teacher.create_with(user: user, roles: ["teacher", "coordinator"]).find_or_create_by(name: "Henrique Faria")
 teacher2 = Teacher.create_with(user: user2, roles: ["teacher"]).find_or_create_by(name: "Juliano")
-teacher3 = Teacher.create_with(user: user3, roles: ["teacher"]).find_or_create_by(name: "Sergio")
+teacher3 = Teacher.create_with(user: user3, roles: ["teacher", "vice director"]).find_or_create_by(name: "Sergio")
 
 software_eng = Course.find_or_create_by(name: "Eng. de Software")
 computer_science = Course.find_or_create_by(name: "Computer Science")
