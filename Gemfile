@@ -43,6 +43,8 @@ gem 'cancancan', '~> 1.10'
 
 gem 'rails_admin'
 
+gem 'devise-i18n-views'
+
 group :development, :test do
   gem 'byebug'
 
