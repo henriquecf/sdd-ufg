@@ -26,4 +26,13 @@ RSpec.describe Teacher, type: :model do
       expect(subject.roles).to eq(["role1"])
     end
   end
+
+  context "add default knowledge_level" do
+    it "should be automatic for all knowledge_groups" do
+      knowledge_group = create(:knowledge_group)
+      teacher = nil
+      expect { teacher = create(:teacher) }.to change { KnowledgeLevel.count}.by(1)
+      expect(knowledge_group.teachers).to include(teacher)
+    end
+  end
 end

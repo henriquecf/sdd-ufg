@@ -10,7 +10,17 @@ class Teacher < ActiveRecord::Base
 
   serialize :roles
 
+  after_create :assign_knowledge_groups
+
   def coordinator?
     roles.include?("coordinator")
+  end
+
+  private
+
+  def assign_knowledge_groups
+    KnowledgeGroup.all.each do |knowledge_group|
+      knowledge_group.teachers << self
+    end
   end
 end
