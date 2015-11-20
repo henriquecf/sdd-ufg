@@ -45,6 +45,8 @@ gem 'rails_admin'
 
 gem 'devise-i18n-views'
 
+gem 'devise-bootstrap-views'
+
 group :development, :test do
   gem 'byebug'
 

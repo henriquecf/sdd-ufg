@@ -14,8 +14,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "devise_bootstrap_views";
 
-form#new_user {
+.panel.panel-default, .extra_links {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
