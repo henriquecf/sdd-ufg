@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :teachers
   devise_for :users
 
-  root to: 'rails_admin/main#dashboard', as: :home
+  root to: 'pages#index', as: :home
 end
