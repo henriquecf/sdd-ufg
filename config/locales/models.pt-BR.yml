@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      teacher: Professor
+      course: Curso
+      grade: Disciplina
+      klass: Turma
+      klass_intent: "Intenção de Lecionar"
+      klass_schedule: "Horário da Turma"
+      distribution_process: "Processo de Distribuição"
+      knowledge_group: "Grupo de Conhecimento"
+      knowledge_level: "Nível em Grupo de Conhecimento"
+    attributes:
+      teacher:
+        name: Nome

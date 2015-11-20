@@ -6,6 +6,8 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :access, :rails_admin
+      can :dashboard
     end
   end
 end

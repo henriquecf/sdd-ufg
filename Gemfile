@@ -41,6 +41,12 @@ gem 'devise'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'rails_admin'
+
+gem 'devise-i18n-views'
+
+gem 'devise-bootstrap-views'
+
 group :development, :test do
   gem 'byebug'
 
@@ -58,5 +64,4 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.0'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
 end
