@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :klasses
   resources :distribution_processes
   resources :knowledge_groups
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   resources :teachers
   devise_for :users
 
-  root to: 'pages#index', as: :home
+  root to: 'rails_admin/main#dashboard', as: :home
 end
