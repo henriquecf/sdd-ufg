@@ -13,6 +13,6 @@ RSpec.describe KnowledgeLevel, type: :model do
   end
 
   it "level default value 1" do
-    expect(KnowledgeLevel.create.level).to eq(1)
+    expect(KnowledgeLevel.create.level).to eq(3)
   end
 end
