@@ -4,4 +4,8 @@ class KnowledgeLevel < ActiveRecord::Base
 
   belongs_to :teacher
   belongs_to :knowledge_group
+
+  def name
+    "#{teacher.name} / #{knowledge_group.name} => #{level}"
+  end
 end

@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_one :teacher
 
   delegate :coordinator?, to: :teacher
+
+  def name
+    email
+  end
 end

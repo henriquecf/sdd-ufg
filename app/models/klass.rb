@@ -8,4 +8,8 @@ class Klass < ActiveRecord::Base
 
   validates :grade, :distribution_process, presence: true
   validates :grade_id, uniqueness: { scope: :distribution_process_id }
+
+  def name
+    "#{grade.name} - #{distribution_process.semester if distribution_process}"
+  end
 end
