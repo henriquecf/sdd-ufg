@@ -13,6 +13,21 @@ pt-BR:
     attributes:
       teacher:
         name: Nome
+        registry: Registro
+        lattes_url: "Lattes"
+        entry_date: "Data de admissão"
+        formation: "Formação"
+        workload: "Carga horária"
+        about: Sobre
+        rg: RG
+        cpf: CPF
+        birth: Nascimento
+        user: "Usuário"
+        roles: "Funções"
+        klasses: Turmas
+        klass_intents: "Intenções"
+        knowledge_levels: "Níveis de conhecimento"
+        knowledge_groups: "Grupos de conhecimento"
       course:
         name: Nome
         created_at: "Data de criação"

@@ -4,7 +4,7 @@ class Teacher < ActiveRecord::Base
   belongs_to :user
   has_many :klasses
   has_many :klass_intents
-  has_many :intents, through: :klass_intents, source: :teacher
+  has_many :intents, through: :klass_intents, source: :klass
   has_many :knowledge_levels
   has_many :knowledge_groups, through: :knowledge_levels
 

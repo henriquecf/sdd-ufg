@@ -7,7 +7,7 @@ RSpec.describe Teacher, type: :model do
   it { is_expected.to have_many(:knowledge_levels) }
   it { is_expected.to have_many(:knowledge_groups).through(:knowledge_levels) }
   it { is_expected.to have_many(:klass_intents) }
-  it { is_expected.to have_many(:intents).through(:klass_intents).source(:teacher) }
+  it { is_expected.to have_many(:intents).through(:klass_intents).source(:klass) }
 
   describe "#coordinator?" do
     it "returns false" do
