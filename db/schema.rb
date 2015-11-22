@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117215513) do
+ActiveRecord::Schema.define(version: 20151122173118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20151117215513) do
   end
 
   create_table "knowledge_levels", force: :cascade do |t|
-    t.integer "level",              default: 1
+    t.integer "level",              default: 3
     t.integer "teacher_id"
     t.integer "knowledge_group_id"
   end
