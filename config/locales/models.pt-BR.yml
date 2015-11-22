@@ -13,3 +13,45 @@ pt-BR:
     attributes:
       teacher:
         name: Nome
+      course:
+        name: Nome
+        created_at: "Data de criação"
+        updated_at: "Data de atualização"
+        grades: Disciplinas
+      grade:
+        name: Nome
+        knowledge_group: "Grupo de Conhecimento"
+        course: Curso
+        klasses: Turmas
+      knowledge_group:
+        name: Nome
+        grades: Turmas
+        knowledge_levels: "Níveis de conhecimento"
+        teachers: Professores
+      klass_schedule:
+        week_day: "Dia da semana"
+        starts_at: "Horário de início"
+        finishs_at: "Horário de fim"
+        klass: Turma
+      klass_intent:
+        klass: Turma
+        teacher: Professor
+      knowledge_level:
+        level: "Nível"
+        teacher: Professor
+        knowledge_group: "Grupo de conhecimento"
+      distribution_process:
+        semester: Semestre
+        klass_registry_start: "Início de registro de turmas"
+        teacher_intent_start: "Início de cadastro de intenção"
+        first_resolution_start: "Início da primeira resolução"
+        substitute_resolution_start: "Início de resolução de substitutos"
+        conclusion: "Conclusão"
+      klass:
+        workload: "Carga horária"
+        distribution_process: "Processo de distribuição"
+        teacher: Professor
+        grade: Turma
+        klass_schedules: "Horários"
+        klass_intents: "Candidatos"
+        teachers: Professores
