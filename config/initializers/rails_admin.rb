@@ -2,6 +2,8 @@ RailsAdmin.config do |config|
 
   config.main_app_name = ["SDD", "UFG"]
 
+  config.excluded_models << "User"
+
   ### Popular gems integration
 
   ## == Devise ==
