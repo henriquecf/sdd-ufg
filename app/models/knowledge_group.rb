@@ -7,6 +7,14 @@ class KnowledgeGroup < ActiveRecord::Base
 
   after_create :assign_teachers
 
+  rails_admin do
+    [:grades, :teachers, :knowledge_levels].each do |field|
+      configure field do
+        hide
+      end
+    end
+  end
+
   private
 
   def assign_teachers

@@ -5,4 +5,10 @@ class Grade < ActiveRecord::Base
   belongs_to :course
   has_many :klasses
   belongs_to :knowledge_group
+
+  rails_admin do
+    configure :klasses do
+      hide
+    end
+  end
 end

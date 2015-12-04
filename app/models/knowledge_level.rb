@@ -6,6 +6,6 @@ class KnowledgeLevel < ActiveRecord::Base
   belongs_to :knowledge_group
 
   def name
-    "#{teacher.name} / #{knowledge_group.name} => #{level}"
+    "#{teacher.name} / #{knowledge_group.name} => #{level}" if teacher && knowledge_group && level
   end
 end
