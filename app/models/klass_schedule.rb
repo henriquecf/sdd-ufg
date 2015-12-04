@@ -10,12 +10,12 @@ class KlassSchedule < ActiveRecord::Base
   end
 
   rails_admin do
+    include_all_fields
     field :week_day do
       formatted_value do
         bindings[:object].week_day_str
       end
     end
-    include_all_fields # all other default fields will be added after, conveniently
     exclude_fields :created_at, :updated_at, :id
   end
 end

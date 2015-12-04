@@ -16,6 +16,14 @@ class Teacher < ActiveRecord::Base
     roles.include?("coordinator")
   end
 
+  rails_admin do
+    [:id, :created_at, :updated_at, :roles, :klasses, :klass_intents, :intents, :knowledge_groups, :knowledge_levels].each do |field|
+      configure field do
+        hide
+      end
+    end
+  end
+
   private
 
   def assign_knowledge_groups

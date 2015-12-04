@@ -10,7 +10,7 @@ class Klass < ActiveRecord::Base
   validates :grade_id, uniqueness: { scope: :distribution_process_id }
 
   rails_admin do
-    [:teacher, :teachers, :klass_intents, :created_at, :updated_at].each do |field|
+    [:teacher, :teachers, :klass_intents, :created_at, :updated_at, :id].each do |field|
       configure field do
         hide
       end

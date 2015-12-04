@@ -7,8 +7,10 @@ class Grade < ActiveRecord::Base
   belongs_to :knowledge_group
 
   rails_admin do
-    configure :klasses do
-      hide
+    [:id, :created_at, :updated_at, :klasses].each do |field|
+      configure field do
+        hide
+      end
     end
   end
 end

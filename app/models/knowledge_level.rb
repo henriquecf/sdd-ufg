@@ -8,4 +8,12 @@ class KnowledgeLevel < ActiveRecord::Base
   def name
     "#{teacher.name} / #{knowledge_group.name} => #{level}" if teacher && knowledge_group && level
   end
+
+  rails_admin do
+    [:id, :created_at, :updated_at].each do |field|
+      configure field do
+        hide
+      end
+    end
+  end
 end
